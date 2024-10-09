@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Game Downloads</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+
+<body>
+    <header>
+        <h1>Free Game Downloads</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <input type="text" id="search" placeholder="Search for a game..." onkeyup="filterGames()">
+    </header>
+
+    <main>
+        <section id="games">
+            <!-- Existing games -->
+            <div class="game" data-name="Stardew Valley">
+                <img src="https://store-images.s-microsoft.com/image/apps.49352.65985311967005000.4f51b5e9-febf-4990-8951-33ba59b634c9.aace9b9e-b001-46eb-a39b-08b1332810aa?format=jpg&w=150&h=150" alt="Stardew Valley">
+                <h2>Stardew Valley</h2>
+                <button onclick="download('Stardew Valley')">Download</button>
+            </div>
+            <div class="game" data-name="Terraria">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQy-gCTQG18mgELrIS32IGNB3Xmx7QTUiBnA&s" alt="Terraria">
+                <h2>Terraria</h2>
+                <button onclick="download('Terraria')">Download</button>
+            </div>
+            <div class="game" data-name="Fallout: New Vegas">
+                <img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/IE/en/99/EP1003-BLES00901_00-DISCONLYPARENT00/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=150&h=150" alt="Fallout: New Vegas">
+                <h2>Fallout: New Vegas</h2>
+                <button onclick="download('Fallout: New Vegas')">Download</button>
+            </div>
+            <div class="game" data-name="Minecraft">
+                <img src="https://i0.wp.com/downloadminecraftapk.com/wp-content/uploads/2023/01/cropped-unnamed-1.webp?resize=150%2C150&ssl=1" alt="Minecraft">
+                <h2>Minecraft</h2>
+                <button onclick="download('Minecraft')">Download</button>
+            </div>
+            <div class="game" data-name="Grand Theft Auto V">
+                <img src="https://ldm2.r1-it.storage.cloud.it/logo/15-4/18/5532ad612cfb8.png" alt="Grand Theft Auto V">
+                <h2>Grand Theft Auto V</h2>
+                <button onclick="download('Grand Theft Auto V')">Download</button>
+            </div>
+            <div class="game" data-name="Grand Theft Auto IV">
+                <img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/99/UP1017-NPUB30702_00-GTAIVDIGITAL0001/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=150&h=150" alt="Grand Theft Auto IV">
+                <h2>Grand Theft Auto IV</h2>
+                <button onclick="download('Grand Theft Auto IV')">Download</button>
+            </div>
+            <div class="game" data-name="Grand Theft Auto: San Andreas">
+                <img src="https://cdromance.org/wp-content/uploads/2015/05/GTA_San_Andreas-Coverart-150x150.jpg" alt="Grand Theft Auto: San Andreas">
+                <h2>Grand Theft Auto: San Andreas</h2>
+                <button onclick="download('Grand Theft Auto: San Andreas')">Download</button>
+            </div>
+
+            <!-- New games -->
+            <div class="game" data-name="The Witcher 3: Wild Hunt">
+                <img src="https://sm.ign.com/t/ign_in/cover/t/the-witche/the-witcher-3-wild-hunt_y2x3.150.jpg" alt="The Witcher 3: Wild Hunt">
+                <h2>The Witcher 3: Wild Hunt</h2>
+                <button onclick="download('The Witcher 3: Wild Hunt')">Download</button>
+            </div>
+            <div class="game" data-name="Red Dead Redemption 2">
+                <img src="https://store-images.s-microsoft.com/image/apps.46694.13738414994700897.d5f58586-d72e-41d4-84db-1e7957867558.a389ab1b-8cbb-47ae-9423-e4b5c97deb4d?format=jpg&w=150&h=150" alt="Red Dead Redemption 2">
+                <h2>Red Dead Redemption 2</h2>
+                <button onclick="download('Red Dead Redemption 2')">Download</button>
+            </div>
+            <div class="game" data-name="Dark Souls III">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQouqNG6Cf51hWf8C6gKd4xePuhoz5ToaJZ3g&s" alt="Dark Souls III">
+                <h2>Dark Souls III</h2>
+                <button onclick="download('Dark Souls III')">Download</button>
+            </div>
+            <div class="game" data-name="DOOM Eternal">
+                <img src="https://store-images.s-microsoft.com/image/apps.447.14633846388270955.34167af5-fabe-4bb4-87d1-87f313b6f79c.1b90a0c0-6d5d-4058-af6f-81fc181fa6c4?format=jpg&w=150&h=150" alt="DOOM Eternal">
+                <h2>DOOM Eternal</h2>
+                <button onclick="download('DOOM Eternal')">Download</button>
+            </div>
+            <div class="game" data-name="Cyberpunk 2077">
+                <img src="https://static.wikia.nocookie.net/cyberpunk/images/b/bf/Cyberpunk_2077_OST_cover.jpg/revision/latest/scale-to-width-down/150?cb=202203170452440" alt="Cyberpunk 2077">
+                <h2>Cyberpunk 2077</h2>
+                <button onclick="download('Cyberpunk 2077')">Download</button>
+            </div>
+            <div class="game" data-name="Assassin's Creed Valhalla">
+                <img src="https://store-images.s-microsoft.com/image/apps.51716.14585440003614248.9f7109bf-73f7-4bc7-ba61-1eeb006d905a.802f0267-5f00-464e-ac26-a7a901bbb532?format=jpg&w=150&h=150" alt="Assassin's Creed Valhalla">
+                <h2>Assassin's Creed Valhalla</h2>
+                <button onclick="download('Assassin\'s Creed Valhalla')">Download</button>
+            </div>
+            <div class="game" data-name="Hades">
+                <img src="https://www.gamepitt.co.uk/wp-content/uploads//2021/08/hades-sale-150x150.jpg.webp" alt="Hades">
+                <h2>Hades</h2>
+                <button onclick="download('Hades')">Download</button>
+            </div>
+            <div class="game" data-name="Among Us">
+                <img src="https://static.wikia.nocookie.net/logo-timeline/images/0/05/Icons8-among-us.png/revision/latest/scale-to-width-down/150?cb=20230910190528" alt="Among Us">
+                <h2>Among Us</h2>
+                <button onclick="download('Among Us')">Download</button>
+            </div>
+            <div class="game" data-name="Fortnite">
+                <img src="https://store-images.s-microsoft.com/image/apps.29094.70702278257994163.1152c6f1-f586-40eb-a61e-0f8bad1ee621.314f1cc2-cc6c-4ff5-a64c-8de57bb88084?format=jpg&w=150&h=150" alt="Fortnite">
+                <h2>Fortnite</h2>
+                <button onclick="download('Fortnite')">Download</button>
+            </div>
+            <div class="game" data-name="Apex Legends">
+                <img src="https://store-images.s-microsoft.com/image/apps.60885.71371076658790719.f03e633a-c24b-4548-a357-e08218cd4846.0c69d6c3-b99d-4ebb-8881-58c756962388?format=jpg&w=150&h=150" alt="Apex Legends">
+                <h2>Apex Legends</h2>
+                <button onclick="download('Apex Legends')">Download</button>
+            </div>
+            <div class="game" data-name="League of Legends">
+                <img src="https://pixelz.cc/wp-content/uploads/2017/11/league-of-legends-uhd-8k-wallpaper-150x150.jpg" alt="League of Legends">
+                <h2>League of Legends</h2>
+                <button onclick="download('League of Legends')">Download</button>
+            </div>
+            <div class="game" data-name="Call of Duty: Warzone">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9kbkUuK_HyF9B-lRZZ8F0SJlwhSq5OR2pLQ&s" alt="Call of Duty: Warzone">
+                <h2>Call of Duty: Warzone</h2>
+                <button onclick="download('Call of Duty: Warzone')">Download</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function download(game) {
+            alert("Downloading " + game);
+        }
+
+        function filterGames() {
+            const input = document.getElementById('search');
+            const filter = input.value.toLowerCase();
+            const games = document.querySelectorAll('.game');
+            
+            games.forEach(game => {
+                const name = game.getAttribute('data-name').toLowerCase();
+                game.style.display = name.includes(filter) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
