@@ -4,9 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Game Downloads</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff0000, #000000, #003366);
+            background-size: 400% 400%;
+            animation: gradient 25s ease infinite; /* Slowed down */
+            color: #f0f0f0;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #660066, #990000); 
+            background-size: 400% 400%;
+            animation: headerGradient 25s ease infinite; /* Slowed down */
+            border-bottom: 4px solid #fff;
+        }
+
+        @keyframes headerGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 4em;
+            background: linear-gradient(270deg, #ff007f, #003366, #ff00ff); 
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGradient 10s ease infinite; /* Slowed down */
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 0% 50%; }
+            75% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #f0f0f0; 
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00; 
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            margin-top: 10px;
+            width: 80%;
+            border: none;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #f0f0f0;
+            transition: background-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            background-color: rgba(255, 255, 255, 0.4);
+            outline: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        #games {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .game {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .game:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .game img {
+            max-width: 100%;
+            border-radius: 10px;
+            border: 2px solid #fff;
+        }
+
+        .download-button {
+            padding: 12px;
+            margin-top: 10px;
+            border: 2px solid #ff6f61; /* Outline color */
+            border-radius: 30px;
+            background-color: rgba(255, 111, 97, 0.8); /* Button background */
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2em; /* Increased font size */
+            text-transform: uppercase; /* Uppercase text */
+            letter-spacing: 2px; /* Letter spacing */
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s, color 0.3s;
+            position: relative; /* For the glow effect */
+            overflow: hidden; /* For the glow effect */
+        }
+
+        .download-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 111, 97, 0.5);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+            z-index: 0;
+        }
+
+        .download-button:hover {
+            background-color: #e65c50; /* Hover background color */
+            transform: scale(1.05);
+            color: #000; /* Text color on hover */
+        }
+
+        .download-button:hover::before {
+            transform: translate(-50%, -50%) scale(1); /* Scale up the glow effect */
+        }
+
+        .download-button span {
+            position: relative; /* For the text */
+            z-index: 1; /* Bring text in front */
+        }
+    </style>
 </head>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 
 <body>
     <header>
@@ -27,118 +190,118 @@
             <div class="game" data-name="Stardew Valley">
                 <img src="https://store-images.s-microsoft.com/image/apps.49352.65985311967005000.4f51b5e9-febf-4990-8951-33ba59b634c9.aace9b9e-b001-46eb-a39b-08b1332810aa?format=jpg&w=150&h=150" alt="Stardew Valley">
                 <h2>Stardew Valley</h2>
-                <button onclick="download('Stardew Valley')">Download</button>
+                <a href="magnet:?xt=urn:btih:F833485E38C4F0C7DF134ABC857F29C51B508D3A&dn=Stardew.Valley.v1.2.31.rar&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.ch%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.aletorrenty.pl%3a2710%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.ilibr.org%3a80%2fannounce&tr=udp%3a%2f%2ftracker.ilibr.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.zer0day.to%3a1337%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.internetwarriors.net%3a1337%2fannounce&tr=udp%3a%2f%2f9.rarbg.me%3a2780%2fannounce&tr=udp%3a%2f%2f9.rarbg.to%3a2730%2fannounce" class="download-button"><span>Download</span></a>
             </div>
             <div class="game" data-name="Terraria">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQy-gCTQG18mgELrIS32IGNB3Xmx7QTUiBnA&s" alt="Terraria">
                 <h2>Terraria</h2>
-                <button onclick="download('Terraria')">Download</button>
+                <a href="magnet:?xt=urn:btih:d48a86c8123c5519afde017740687e8a92c98972&dn=Terraria+v1.3.4.2-GOG&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fzer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce" class="download-button"><span>Download</span></a>
             </div>
             <div class="game" data-name="Fallout: New Vegas">
                 <img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/IE/en/99/EP1003-BLES00901_00-DISCONLYPARENT00/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=150&h=150" alt="Fallout: New Vegas">
                 <h2>Fallout: New Vegas</h2>
-                <button onclick="download('Fallout: New Vegas')">Download</button>
+                <a href="magnet:?xt=urn:btih:eafe02ae214c26ce03115b7ce6caabae399048e8&dn=Fallout+New+Vegas+Ultimate+Edition+repack+Mr+DJ&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fzer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce" class="download-button"><span>Download</span></a>
             </div>
             <div class="game" data-name="Minecraft">
                 <img src="https://i0.wp.com/downloadminecraftapk.com/wp-content/uploads/2023/01/cropped-unnamed-1.webp?resize=150%2C150&ssl=1" alt="Minecraft">
                 <h2>Minecraft</h2>
-                <button onclick="download('Minecraft')">Download</button>
-            </div>
-            <div class="game" data-name="Grand Theft Auto V">
-                <img src="https://ldm2.r1-it.storage.cloud.it/logo/15-4/18/5532ad612cfb8.png" alt="Grand Theft Auto V">
-                <h2>Grand Theft Auto V</h2>
-                <button onclick="download('Grand Theft Auto V')">Download</button>
-            </div>
-            <div class="game" data-name="Grand Theft Auto IV">
-                <img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/99/UP1017-NPUB30702_00-GTAIVDIGITAL0001/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=150&h=150" alt="Grand Theft Auto IV">
-                <h2>Grand Theft Auto IV</h2>
-                <button onclick="download('Grand Theft Auto IV')">Download</button>
+                <a href="https://example.com/downloads/minecraft.zip" class="download-button"><span>Download</span></a>
             </div>
             <div class="game" data-name="Grand Theft Auto: San Andreas">
-                <img src="https://cdromance.org/wp-content/uploads/2015/05/GTA_San_Andreas-Coverart-150x150.jpg" alt="Grand Theft Auto: San Andreas">
+                <img src="https://m.media-amazon.com/images/I/81lfGlmCOvL._AC_SY450_.jpg" alt="Grand Theft Auto: San Andreas">
                 <h2>Grand Theft Auto: San Andreas</h2>
-                <button onclick="download('Grand Theft Auto: San Andreas')">Download</button>
-            </div>
-
-            <!-- New games -->
-            <div class="game" data-name="The Witcher 3: Wild Hunt">
-                <img src="https://sm.ign.com/t/ign_in/cover/t/the-witche/the-witcher-3-wild-hunt_y2x3.150.jpg" alt="The Witcher 3: Wild Hunt">
-                <h2>The Witcher 3: Wild Hunt</h2>
-                <button onclick="download('The Witcher 3: Wild Hunt')">Download</button>
-            </div>
-            <div class="game" data-name="Red Dead Redemption 2">
-                <img src="https://store-images.s-microsoft.com/image/apps.46694.13738414994700897.d5f58586-d72e-41d4-84db-1e7957867558.a389ab1b-8cbb-47ae-9423-e4b5c97deb4d?format=jpg&w=150&h=150" alt="Red Dead Redemption 2">
-                <h2>Red Dead Redemption 2</h2>
-                <button onclick="download('Red Dead Redemption 2')">Download</button>
-            </div>
-            <div class="game" data-name="Dark Souls III">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQouqNG6Cf51hWf8C6gKd4xePuhoz5ToaJZ3g&s" alt="Dark Souls III">
-                <h2>Dark Souls III</h2>
-                <button onclick="download('Dark Souls III')">Download</button>
+                <a href="magnet:?xt=urn:btih:1b74eacc73b1e294eaaf43d7ceedb89ddde2d843&dn=Grand+Theft+Auto+GTA+San+Andreas+version+1.1+repack+Mr+DJ&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fzer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce" class="download-button"><span>Download</span></a>
             </div>
             <div class="game" data-name="DOOM Eternal">
-                <img src="https://store-images.s-microsoft.com/image/apps.447.14633846388270955.34167af5-fabe-4bb4-87d1-87f313b6f79c.1b90a0c0-6d5d-4058-af6f-81fc181fa6c4?format=jpg&w=150&h=150" alt="DOOM Eternal">
+                <img src="https://store-images.s-microsoft.com/image/apps.14883.69924912782385774.75b1e1a0-c6f9-4c3b-8157-561b7a95fa6c4?format=jpg&w=150&h=150" alt="DOOM Eternal">
                 <h2>DOOM Eternal</h2>
-                <button onclick="download('DOOM Eternal')">Download</button>
+                <a href="magnet:?xt=urn:btih:e759ebef1bcadb62ea6fd5f71861bc3254da0963&dn=DOOM.Eternal-CODEX&tr=http%3a%2f%2ftracker.trackerfix.com%3a80%2fannounce&tr=udp%3a%2f%2f9.rarbg.me%3a2850%2fannounce&tr=udp%3a%2f%2f9.rarbg.to%3a2860%2fannounce" class="download-button"><span>Download</span></a>
             </div>
             <div class="game" data-name="Cyberpunk 2077">
                 <img src="https://static.wikia.nocookie.net/cyberpunk/images/b/bf/Cyberpunk_2077_OST_cover.jpg/revision/latest/scale-to-width-down/150?cb=202203170452440" alt="Cyberpunk 2077">
                 <h2>Cyberpunk 2077</h2>
-                <button onclick="download('Cyberpunk 2077')">Download</button>
+                <a href="hmagnet:?xt=urn:btih:a14a375ce5137a7820948a87e554f768e23a75f3&dn=Cyberpunk.2077.v1.05.zip&tr=https%3a%2f%2fopen.kickasstracker.com%3a443%2fannounce&tr=udp%3a%2f%2fopen.stealth.si%3a80%2fannounce&tr=udp%3a%2f%2ftracker.justseed.it%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.dutchtracking.com%3a6969%2fannounce&tr=http%3a%2f%2f87.253.152.137%2fannounce&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969%2fannounce&tr=udp%3a%2f%2ftc.animereactor.ru%3a8082%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2fwambo.club%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=http%3a%2f%2f91.216.110.47%2fannounce&tr=http%3a%2f%2f91.217.91.21%3a3218%2fannounce&tr=http%3a%2f%2f91.218.230.81%3a6969%2fannounce&tr=http%3a%2f%2f93.92.64.5%2fannounce&tr=http%3a%2f%2fatrack.pow7.com%2fannounce&tr=http%3a%2f%2fbt.pusacg.org%3a8080%2fannounce&tr=https%3a%2f%2f182.176.139.129%3a6969%2fannounce&tr=https%3a%2f%2ftracker.bt-hash.com%3a443%2fannounce&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=http%3a%2f%2fbt.henbt.com%3a2710%2fannounce&tr=https%3a%2f%2ftracker.ipv6tracker.ru%3a80%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.kicks-ass.net%3a80%2fannounce&tr=udp%3a%2f%2ftracker.sktorrent.net%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.internetwarriors.net%3a1337%2fannounce&tr=https%3a%2f%2ftracker.dutchtracking.com%3a80%2fannounce&tr=https%3a%2f%2ftracker.parrotsec.org%3a443%2fannounce&tr=https%3a%2f%2ftracker.moxing.party%3a6969%2fannounce&tr=udp%3a%2f%2fzephir.monocul.us%3a6969%2fannounce&tr=https%3a%2f%2fgrifon.info%3a80%2fannounce&tr=udp%3a%2f%2ftracker.aletorrenty.pl%3a2710%2fannounce&tr=https%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=https%3a%2f%2fgwp2-v19.rinet.ru%3a80%2fannounce&tr=udp%3a%2f%2fopen.stealth.si%3a80%2fannounce&tr=https%3a%2f%2ftracker.fastdownload.xyz%3a443%2fannounce&tr=https%3a%2f%2ftr.kxmp.cf%3a80%2fannounce" class="download-button"><span>Download</span></a>
             </div>
-            <div class="game" data-name="Assassin's Creed Valhalla">
+            <div class="game" data-name="Mafia II">
                 <img src="https://store-images.s-microsoft.com/image/apps.51716.14585440003614248.9f7109bf-73f7-4bc7-ba61-1eeb006d905a.802f0267-5f00-464e-ac26-a7a901bbb532?format=jpg&w=150&h=150" alt="Assassin's Creed Valhalla">
-                <h2>Assassin's Creed Valhalla</h2>
-                <button onclick="download('Assassin\'s Creed Valhalla')">Download</button>
+                <h2>Mafia II</h2>
+                <a href="magnet:?xt=urn:btih:15cb78d5de6c300b30ec96dc0aaf88f9e7f58c21&dn=Mafia+2%3A+Digital+Deluxe+Edition+%28v.1.0.0.1+%2B+All+DLCs%2C+MULTi8%29+%5BRePack%5D+-+VickNet&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fzer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce" class="download-button"><span>Download</span></a>
             </div>
             <div class="game" data-name="Hades">
                 <img src="https://www.gamepitt.co.uk/wp-content/uploads//2021/08/hades-sale-150x150.jpg.webp" alt="Hades">
                 <h2>Hades</h2>
-                <button onclick="download('Hades')">Download</button>
+                <a href="magnet:?xt=urn:btih:207c84f516bf306f61364123844784ef748f9667&dn=Hades.EGS.Rip-InsaneRamZes&tr=udp%3a%2f%2fopentor.org%3a2710&tr=http%3a%2f%2fretracker.local%2fannounce&tr=http%3a%2f%2ftracker.filetracker.pl%3a8089%2fannounce&tr=http%3a%2f%2ftracker2.wasabii.com.tw%3a6969%2fannounce&tr=http%3a%2f%2ftracker.grepler.com%3a6969%2fannounce&tr=http%3a%2f%2f125.227.35.196%3a6969%2fannounce&tr=http%3a%2f%2ftracker.tiny-vps.com%3a6969%2fannounce&tr=http%3a%2f%2f87.248.186.252%3a8080%2fannounce&tr=http%3a%2f%2f210.244.71.25%3a6969%2fannounce&tr=http%3a%2f%2f46.4.109.148%3a6969%2fannounce&tr=udp%3a%2f%2f46.148.18.250%3a2710&tr=http%3a%2f%2ftracker.dler.org%3a6969%2fannounce&tr=udp%3a%2f%2f%5b2001%3a67c%3a28f8%3a92%3a%3a1111%3a1%5d%3a2710&tr=udp%3a%2f%2fipv6.leechers-paradise.org%3a6969" class="download-button"><span>Download</span></a>
             </div>
             <div class="game" data-name="Among Us">
                 <img src="https://static.wikia.nocookie.net/logo-timeline/images/0/05/Icons8-among-us.png/revision/latest/scale-to-width-down/150?cb=20230910190528" alt="Among Us">
                 <h2>Among Us</h2>
-                <button onclick="download('Among Us')">Download</button>
+                <a href="magnet:?xt=urn:btih:5825b8ab06ed179c472d298c929ec5933a65c531&dn=Among.Us.v2020.12.9s.Incl.Pets.zip&tr=udp%3a%2f%2fpublic.popcorn-tracker.org%3a6969%2fannounce&tr=http%3a%2f%2f104.28.1.30%3a8080%2fannounce&tr=http%3a%2f%2f104.28.16.69%2fannounce&tr=udp%3a%2f%2f107.150.14.110%3a6969%2fannounce&tr=udp%3a%2f%2f109.121.134.121%3a1337%2fannounce&tr=udp%3a%2f%2f114.55.113.60%3a6969%2fannounce&tr=http%3a%2f%2f125.227.35.196%3a6969%2fannounce&tr=udp%3a%2f%2f128.199.70.66%3a5944%2fannounce&tr=http%3a%2f%2f157.7.202.64%3a8080%2fannounce&tr=http%3a%2f%2f158.69.146.212%3a7777%2fannounce&tr=http%3a%2f%2f173.254.204.71%3a1096%2fannounce&tr=http%3a%2f%2f178.175.143.27%2fannounce&tr=udp%3a%2f%2f178.33.73.26%3a2710%2fannounce&tr=udp%3a%2f%2f182.176.139.129%3a6969%2fannounce&tr=udp%3a%2f%2f185.5.97.139%3a8089%2fannounce&tr=udp%3a%2f%2f188.165.253.109%3a1337%2fannounce&tr=udp%3a%2f%2f194.106.216.222%3a80%2fannounce&tr=udp%3a%2f%2f195.123.209.37%3a1337%2fannounce&tr=http%3a%2f%2f210.244.71.25%3a6969%2fannounce&tr=http%3a%2f%2f210.244.71.26%3a6969%2fannounce&tr=http%3a%2f%2f213.159.215.198%3a6970%2fannounce&tr=udp%3a%2f%2f213.163.67.56%3a1337%2fannounce&tr=http%3a%2f%2f37.19.5.139%3a6969%2fannounce&tr=udp%3a%2f%2f37.19.5.155%3a2710%2fannounce&tr=udp%3a%2f%2f46.4.109.148%3a6969%2fannounce&tr=udp%3a%2f%2f5.79.249.77%3a6969%2fannounce&tr=udp%3a%2f%2f5.79.83.193%3a6969%2fannounce&tr=udp%3a%2f%2f51.254.244.161%3a6969%2fannounce&tr=http%3a%2f%2f59.36.96.77%3a6969%2fannounce&tr=udp%3a%2f%2f74.82.52.209%3a6969%2fannounce&tr=http%3a%2f%2f80.246.243.18%3a6969%2fannounce&tr=http%3a%2f%2f81.200.2.231%2fannounce&tr=udp%3a%2f%2f85.17.19.180%3a80%2fannounce&tr=http%3a%2f%2f87.248.186.252%3a8080%2fannounce&tr=http%3a%2f%2f87.253.152.137%2fannounce&tr=http%3a%2f%2f91.216.110.47%2fannounce&tr=http%3a%2f%2f91.217.91.21%3a3218%2fannounce&tr=udp%3a%2f%2f91.218.230.81%3a6969%2fannounce&tr=http%3a%2f%2f93.92.64.5%2fannounce&tr=http%3a%2f%2fatrack.pow7.com%2fannounce&tr=http%3a%2f%2fbt.henbt.com%3a2710%2fannounce&tr=http%3a%2f%2fbt.pusacg.org%3a8080%2fannounce&tr=http%3a%2f%2fbt2.careland.com.cn%3a6969%2fannounce&tr=udp%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=udp%3a%2f%2fmgtracker.org%3a2710%2fannounce&tr=http%3a%2f%2fmgtracker.org%3a6969%2fannounce&tr=http%3a%2f%2fopen.acgtracker.com%3a1096%2fannounce&tr=http%3a%2f%2fopen.lolicon.eu%3a7777%2fannounce&tr=http%3a%2f%2fopen.touki.ru%2fannounce.php&tr=http%3a%2f%2fp4p.arenabg.ch%3a1337%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce&tr=http%3a%2f%2fpow7.com%3a80%2fannounce&tr=http%3a%2f%2fretracker.gorcomnet.ru%2fannounce&tr=http%3a%2f%2fretracker.krs-ix.ru%2fannounce&tr=http%3a%2f%2fretracker.krs-ix.ru%3a80%2fannounce&tr=http%3a%2f%2fsecure.pow7.com%2fannounce&tr=http%3a%2f%2ft1.pow7.com%2fannounce&tr=http%3a%2f%2ft2.pow7.com%2fannounce&tr=http%3a%2f%2fthetracker.org%3a80%2fannounce&tr=udp%3a%2f%2ftorrent.gresille.org%3a80%2fannounce&tr=http%3a%2f%2ftorrentsmd.com%3a8080%2fannounce&tr=udp%3a%2f%2ftracker.aletorrenty.pl%3a2710%2fannounce&tr=http%3a%2f%2ftracker.baravik.org%3a6970%2fannounce&tr=udp%3a%2f%2ftracker.bittor.pw%3a1337%2fannounce&tr=http%3a%2f%2ftracker.bittorrent.am%2fannounce&tr=http%3a%2f%2ftracker.calculate.ru%3a6969%2fannounce&tr=http%3a%2f%2ftracker.dler.org%3a6969%2fannounce&tr=http%3a%2f%2ftracker.dutchtracking.com%2fannounce&tr=http%3a%2f%2ftracker.dutchtracking.com%3a80%2fannounce&tr=http%3a%2f%2ftracker.dutchtracking.nl%2fannounce&tr=http%3a%2f%2ftracker.dutchtracking.nl%3a80%2fannounce&tr=http%3a%2f%2ftracker.edoardocolombo.eu%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.ex.ua%3a80%2fannounce&tr=http%3a%2f%2ftracker.ex.ua%3a80%2fannounce&tr=udp%3a%2f%2ftracker.filetracker.pl%3a8089%2fannounce&tr=udp%3a%2f%2ftracker.flashtorrents.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.grepler.com%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.internetwarriors.net%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.kicks-ass.net%3a80%2fannounce&tr=http%3a%2f%2ftracker.kicks-ass.net%3a80%2fannounce&tr=udp%3a%2f%2ftracker.kuroy.me%3a5944%2fannounce&tr=udp%3a%2f%2ftracker.mg64.net%3a2710%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.skyts.net%3a6969%2fannounce&tr=http%3a%2f%2ftracker.tfile.me%2fannounce&tr=udp%3a%2f%2ftracker.tiny-vps.com%3a6969%2fannounce&tr=http%3a%2f%2ftracker.tvunderground.org.ru%3a3218%2fannounce&tr=udp%3a%2f%2ftracker.yoshi210.com%3a6969%2fannounce&tr=http%3a%2f%2ftracker1.wasabii.com.tw%3a6969%2fannounce&tr=http%3a%2f%2ftracker2.itzmx.com%3a6961%2fannounce&tr=http%3a%2f%2ftracker2.wasabii.com.tw%3a6969%2fannounce&tr=http%3a%2f%2fwww.wareztorrent.com%2fannounce&tr=http%3a%2f%2fwww.wareztorrent.com%3a80%2fannounce&tr=https%3a%2f%2f104.28.17.69%2fannounce&tr=https%3a%2f%2fwww.wareztorrent.com%2fannounce&tr=http%3a%2f%2f107.150.14.110%3a6969%2fannounce&tr=http%3a%2f%2f109.121.134.121%3a1337%2fannounce&tr=http%3a%2f%2f114.55.113.60%3a6969%2fannounce&tr=http%3a%2f%2f128.199.70.66%3a5944%2fannounce&tr=udp%3a%2f%2f151.80.120.114%3a2710%2fannounce&tr=udp%3a%2f%2f168.235.67.63%3a6969%2fannounce&tr=http%3a%2f%2f178.33.73.26%3a2710%2fannounce&tr=http%3a%2f%2f182.176.139.129%3a6969%2fannounce&tr=http%3a%2f%2f185.5.97.139%3a8089%2fannounce&tr=udp%3a%2f%2f185.86.149.205%3a1337%2fannounce&tr=http%3a%2f%2f188.165.253.109%3a1337%2fannounce&tr=udp%3a%2f%2f191.101.229.236%3a1337%2fannounce&tr=http%3a%2f%2f194.106.216.222%2fannounce&tr=http%3a%2f%2f195.123.209.37%3a1337%2fannounce&tr=udp%3a%2f%2f195.123.209.40%3a80%2fannounce&tr=udp%3a%2f%2f208.67.16.113%3a8000%2fannounce&tr=http%3a%2f%2f213.163.67.56%3a1337%2fannounce&tr=http%3a%2f%2f37.19.5.155%3a6881%2fannounce&tr=http%3a%2f%2f46.4.109.148%3a6969%2fannounce&tr=http%3a%2f%2f5.79.249.77%3a6969%2fannounce&tr=http%3a%2f%2f5.79.83.193%3a2710%2fannounce&tr=http%3a%2f%2f51.254.244.161%3a6969%2fannounce&tr=udp%3a%2f%2f62.138.0.158%3a6969%2fannounce&tr=udp%3a%2f%2f62.212.85.66%3a2710%2fannounce&tr=http%3a%2f%2f74.82.52.209%3a6969%2fannounce&tr=http%3a%2f%2f85.17.19.180%2fannounce&tr=udp%3a%2f%2f89.234.156.205%3a80%2fannounce&tr=udp%3a%2f%2f9.rarbg.com%3a2710%2fannounce&tr=udp%3a%2f%2f9.rarbg.me%3a2780%2fannounce&tr=udp%3a%2f%2f9.rarbg.to%3a2730%2fannounce&tr=http%3a%2f%2f91.218.230.81%3a6969%2fannounce&tr=udp%3a%2f%2f94.23.183.33%3a6969%2fannounce&tr=udp%3a%2f%2fbt.xxx-tracker.com%3a2710%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=http%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=http%3a%2f%2fmgtracker.org%3a2710%2fannounce&tr=udp%3a%2f%2fopen.stealth.si%3a80%2fannounce&tr=http%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce&tr=udp%3a%2f%2fshadowshq.eddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fshadowshq.yi.org%3a6969%2fannounce&tr=http%3a%2f%2ftorrent.gresille.org%2fannounce&tr=http%3a%2f%2ftracker.aletorrenty.pl%3a2710%2fannounce&tr=http%3a%2f%2ftracker.bittor.pw%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.eddie4.nl%3a6969%2fannounce&tr=http%3a%2f%2ftracker.ex.ua%2fannounce&tr=http%3a%2f%2ftracker.filetracker.pl%3a8089%2fannounce&tr=http%3a%2f%2ftracker.flashtorrents.org%3a6969%2fannounce&tr=http%3a%2f%2ftracker.grepler.com%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.ilibr.org%3a80%2fannounce&tr=http%3a%2f%2ftracker.internetwarriors.net%3a1337%2fannounce&tr=http%3a%2f%2ftracker.kicks-ass.net%2fannounce&tr=http%3a%2f%2ftracker.kuroy.me%3a5944%2fannounce&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.mg64.net%3a6969%2fannounce&tr=http%3a%2f%2ftracker.mg64.net%3a6881%2fannounce&tr=http%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.piratepublic.com%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.sktorrent.net%3a6969%2fannounce&tr=http%3a%2f%2ftracker.skyts.net%3a6969%2fannounce&tr=http%3a%2f%2ftracker.tiny-vps.com%3a6969%2fannounce&tr=http%3a%2f%2ftracker.yoshi210.com%3a6969%2fannounce&tr=udp%3a%2f%2ftracker2.indowebster.com%3a6969%2fannounce&tr=udp%3a%2f%2ftracker4.piratux.com%3a6969%2fannounce&tr=udp%3a%2f%2fzer0day.ch%3a1337%2fannounce&tr=udp%3a%2f%2fzer0day.to%3a1337%2fannouncep" class="download-button"><span>Download</span></a>
             </div>
             <div class="game" data-name="Fortnite">
                 <img src="https://store-images.s-microsoft.com/image/apps.29094.70702278257994163.1152c6f1-f586-40eb-a61e-0f8bad1ee621.314f1cc2-cc6c-4ff5-a64c-8de57bb88084?format=jpg&w=150&h=150" alt="Fortnite">
                 <h2>Fortnite</h2>
-                <button onclick="download('Fortnite')">Download</button>
+                <a href="https://store.epicgames.com/en-US/p/fortnite" class="download-button"><span>Download</span></a>
             </div>
-            <div class="game" data-name="Apex Legends">
-                <img src="https://store-images.s-microsoft.com/image/apps.60885.71371076658790719.f03e633a-c24b-4548-a357-e08218cd4846.0c69d6c3-b99d-4ebb-8881-58c756962388?format=jpg&w=150&h=150" alt="Apex Legends">
-                <h2>Apex Legends</h2>
-                <button onclick="download('Apex Legends')">Download</button>
-            </div>
-            <div class="game" data-name="League of Legends">
-                <img src="https://pixelz.cc/wp-content/uploads/2017/11/league-of-legends-uhd-8k-wallpaper-150x150.jpg" alt="League of Legends">
-                <h2>League of Legends</h2>
-                <button onclick="download('League of Legends')">Download</button>
-            </div>
-            <div class="game" data-name="Call of Duty: Warzone">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9kbkUuK_HyF9B-lRZZ8F0SJlwhSq5OR2pLQ&s" alt="Call of Duty: Warzone">
-                <h2>Call of Duty: Warzone</h2>
-                <button onclick="download('Call of Duty: Warzone')">Download</button>
-            </div>
-        </section>
-    </main>
 
-    <script>
-        function download(game) {
-            alert("Downloading " + game);
-        }
-
-        function filterGames() {
-            const input = document.getElementById('search');
-            const filter = input.value.toLowerCase();
-            const games = document.querySelectorAll('.game');
+            <!-- Additional random games -->
+            <div class="game" data-name="The Witcher 3">
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Witcher_3_cover.jpg" alt="The Witcher 3">
+                <h2>The Witcher 3</h2>
+                <a href="magnet:?xt=urn:btih:f6921cf841c1d8a6b1233eac6034303e6f40f4b5&dn=The+Witcher+3+Wild+Hunt+Game+of+the+Year+Edition+PROPER-GOG&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fpublic.popcorn-tracker.org%3A6969" class="download-button"><span>Download</span></a>
+            </div>
+            <div class="game" data-name="Celeste">
+                <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Celeste_cover.png" alt="Celeste">
+                <h2>Celeste</h2>
+                <a href="magnet:?xt=urn:btih:4BC5CF8216B8796A5439DD8D64C23C3E09576661&dn=Celeste.v1.2.1.11.rar&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.ch%3a1337%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.zer0day.to%3a1337%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.internetwarriors.net%3a1337%2fannounce&tr=udp%3a%2f%2f9.rarbg.me%3a2790%2fannounce&tr=udp%3a%2f%2f9.rarbg.to%3a2800%2fannounce&tr=http%3a%2f%2fnyaa.tracker.wf%3a7777%2fannounce&tr=http%3a%2f%2fsukebei.tracker.wf%3a8888%2fannounce&tr=http%3a%2f%2fanidex.moe%3a6969%2fannounce" class="download-button"><span>Download</span></a>
+            </div>
+            <div class="game" data-name="Portal 2">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/bf/Portal_2_cover.png" alt="Portal 2">
+                <h2>Portal 2</h2>
+                <a href="magnet:?xt=urn:btih:f258f6c1fa273743e5f16df98046f032d883a26d&dn=Portal+2+%28v2.0.0.1%29+%28RUS%2FENG%2FMULTi%29+%5BRePack%5D+-+VickNet&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fzer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce" class="download-button"><span>Download</span></a>
+            </div>
+            <div class="game" data-name="The Legend of Zelda: Breath of the Wild">
+                <img src="https://upload.wikimedia.org/wikipedia/en/9/92/The_Legend_of_Zelda_Breath_of_the_Wild.jpg" alt="The Legend of Zelda: Breath of the Wild">
+                <h2>The Legend of Zelda: Breath of the Wild</h2>
+                <a href="magnet:?xt=urn:btih:83d5218e996282f0daa75e0227d73ffc76d3942f&dn=The+Legend+of+Zelda%3A+Breath+of+the+Wild+%28PC+%2B+Emulator%2C+v1.1.0%29+%5BFitGirl+Repack%2C+Selective+Download+-+from+5.1+GB%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fzer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce" class="download-button"><span>Download</span></a>
+            </div>
+            <div class="game" data-name="Overwatch">
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Overwatch_cover.png" alt="Overwatch">
+                <h2>Overwatch</h2>
+                <a href="https://overwatch.blizzard.com/en-us/" class="download-button"><span>Download</span></a>
+            </div>
+            <div class="game" data-name="Dead Cells">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a0/Dead_Cells_cover.png" alt="Dead Cells">
+                <h2>Dead Cells</h2>
+                <a href="magnet:?xt=urn:btih:28ee9c28a136b16395e580f069cae6bd1b028b6b&dn=Dead.Cells.The.Bad.Seed-PLAZA&tr=http%3a%2f%2ftracker.trackerfix.com%3a80%2fannounce&tr=udp%3a%2f%2f9.rarbg.me%3a2790%2fannounce&tr=udp%3a%2f%2f9.rarbg.to%3a2740%2fannounce" class="download-button"><span>Download</span></a>
+            </div>
+            <div class="game" data-name="Monster Hunter: World">
+                <img src="https://upload.wikimedia.org/wikipedia/en/5/5f/Monster_Hunter_World.jpg" alt="Monster Hunter: World">
+                <h2>Monster Hunter: World</h2>
+                <a href="magnet:?xt=urn:btih:E7870BED71AA2183D6865DBA32E26E14ECE9373D&dn=Monster.Hunter.World-CODEX&tr=udp%3a%2f%2ftracker.trackerfix.com%3a82%2fannounce&tr=udp%3a%2f%2f9.rarbg.me%3a2740%2fannounce&tr=udp%3a%2f%2f9.rarbg.to%3a2720%2fannounce" class="download-button"><span>Download</span></a>
+            </div>
+            <div class="game" data-name="Final Fantasy XV">
+                <img src="https://upload.wikimedia.org/wikipedia/en/3/3c/Final_Fantasy_VII_Remake_cover.jpg" alt="Final Fantasy VII Remake">
+                <h2>Final Fantasy VII Remake</h2>
+                <a href="magnet:?xt=urn:btih:987D8717B33554F23ECC2A5176ACD097FBF8C724&dn=FINAL.FANTASY.XV.WINDOWS.EDITION.Incl.DLCs.zip&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.ch%3a1337%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.zer0day.to%3a1337%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.internetwarriors.net%3a1337%2fannounce&tr=udp%3a%2f%2f9.rarbg.me%3a2790%2fannounce&tr=udp%3a%2f%2f9.rarbg.to%3a2740%2fannounce&tr=http%3a%2f%2fnyaa.tracker.wf%3a7777%2fannounce&tr=http%3a%2f%2fsukebei.tracker.wf%3a8888%2fannounce&tr=http%3a%2f%2fanidex.moe%3a6969%2fannounce" class="download-button"><span>Download</span></a>
+            </div>
+            <div class="game" data-name="Grand Theft Auto V">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a8/Genshin_Impact_cover.png" alt="Genshin Impact">
+                <h2>Grand Theft Auto V</h2>
+                <a href="magnet:?xt=urn:btih:6AF27C5A03509C4170833D9AC3985D1C9399D59C" class="download-button"><span>Download</span></a>
+            </div>
+            <div class="game" data-name="Grand Theft Auto IV">
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/01/Ghost_of_Tsushima_cover.jpg" alt="Ghost of Tsushima">
+                <h2>Grand Theft Auto IV</h2>
+                <a href="magnet:?xt=urn:btih:804554e5cb9deacc411f17ca3a750cc404b3022e&dn=Grand+Theft+Auto+IV+%28GTA+4%29+updated+Multi+5+repack+Mr+DJ&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fpublic.popcorn-tracker.org%3A6969" class="download-button"><span>Download</span></a>
+            </div>
+            <div class="game" data-name="Red Dead Redemption 2">
+                <img src="https://upload.wikimedia.org/wikipedia/en/4/4a/Red_Dead_Redemption_2_cover.jpg" alt="Red Dead Redemption 2">
+                <h2>Red Dead Redemption 2</h2>
+                <a href="magnet:?xt=urn:btih:BB87CFC779921142E61B9768234C14964C0E2FC3" class="download-button"><span>Download</span></a>
+            </div>
+            <div class="game" data-name="Grand Theft Auto Vice City">
+                <img src="https://upload.wikimedia.org/wikipedia/en/3/39/Sekiro_cover.png" alt="Sekiro: Shadows Die Twice">
+                <h2>Grand Theft Auto Vice City</h2>
+                <a href="magnet:?xt=urn:btih:fccc6da9292ce25df93f24ef110c83cee6a02188&dn=Grand+theft+Auto+GTA+Vice+City+v+1.1+repack+Mr+DJ&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fzer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce" class="download-button"><span>Download</span></a>
+            </div>
             
-            games.forEach(game => {
-                const name = game.getAttribute('data-name').toLowerCase();
-                game.style.display = name.includes(filter) ? 'block' : 'none';
-            });
-        }
-    </script>
-</body>
-</html>
